@@ -181,7 +181,7 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>工厂模式（Factory Pattern）就是专门负责将大量有共同接口的类实例化，而且不必事先知道每次是要实例化哪一个类的模式。它定义一个用于创建对象的接口，由子类决定实例化哪一个类。工厂模式相当于创建实例对象的new，经常要根据类Class生成实例对象，如A a=new A() 工厂模式也是用来创建实例对象的。</p>
+        <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p><strong>工厂模式</strong>（Factory Pattern）就是专门负责将大量有共同接口的类实例化，而且不必事先知道每次是要实例化哪一个类的模式。它定义一个用于创建对象的接口，由子类决定实例化哪一个类。工厂模式相当于创建实例对象的new，经常要根据类Class生成实例对象，如A a=new A() 工厂模式也是用来创建实例对象的。</p>
 <a id="more"></a>
 <h4 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h4><p><img src="https://upload-images.jianshu.io/upload_images/3262738-b1a29ff116e6f1ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="工厂方法模式"></p>
 <ol>
@@ -216,9 +216,7 @@
 </blockquote>
 <p>如果不需要新增也不需要减少。我们是不是可以把工厂的选择封装起来。让多家工厂合并成一家工厂。那就是接下来要讲的<strong>简单工厂模式</strong></p>
 <hr>
-<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><blockquote>
-<p><strong>简单工厂模式</strong>（Simple Factory Pattern）是类的创建模式，又叫做<strong>静态工厂方法模式</strong>。就是由一个工厂类根据传入的参量决定创建出哪一种产品类的实例。与上面<strong>工厂模式</strong>的区别就是它只需要一个工厂。</p>
-</blockquote>
+<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p><strong>简单工厂模式</strong>（Simple Factory Pattern）是类的创建模式，又叫做<strong>静态工厂方法模式</strong>。就是由一个工厂类根据传入的参量决定创建出哪一种产品类的实例。与上面<strong>工厂模式</strong>的区别就是它只需要一个工厂。</p>
 <h4 id="UML类图-1"><a href="#UML类图-1" class="headerlink" title="UML类图"></a>UML类图</h4><p><img src="https://upload-images.jianshu.io/upload_images/3262738-0e5ef8eefbd001f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="简单工厂模式"></p>
 <ol>
 <li>抽象产品类（AbstractProduct）：类中定义抽象一些方法，在子类中具体实现。</li>
