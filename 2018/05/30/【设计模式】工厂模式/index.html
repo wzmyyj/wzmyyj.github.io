@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="wzmyyj">
+    
+    <meta name="description" content="good good study">
+    
+    
+    
+    
+    
+    
+    <title>【设计模式】工厂模式 | wzmyyj</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: '加载中';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">开启歌词</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">回到顶部</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" mobile.jpg " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">wzmyyjの个人主页</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(1px);
+            -webkit-filter: blur(1px);
+        
+            z-index: -1;
+            background-image: url('/images/background.jpg');
+            background-repeat: no-repeat;
+            background-position: center -256px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('/images/background.jpg');
+            background-position: center -300px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">wzmyyjの个人主页</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '1900',
+                height: '1100'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">【设计模式】工厂模式</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-05-30
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/设计模式/">#设计模式</a>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>工厂模式（Factory Pattern）就是专门负责将大量有共同接口的类实例化，而且不必事先知道每次是要实例化哪一个类的模式。它定义一个用于创建对象的接口，由子类决定实例化哪一个类。工厂模式相当于创建实例对象的new，经常要根据类Class生成实例对象，如A a=new A() 工厂模式也是用来创建实例对象的。</p>
+<a id="more"></a>
+<h4 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h4><p><img src="https://upload-images.jianshu.io/upload_images/3262738-b1a29ff116e6f1ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="工厂方法模式"></p>
+<ol>
+<li>抽象产品类（AbstractProduct）：类中定义抽象一些方法，在子类中具体实现。</li>
+<li>具体产品类（ProductX）：实现基类中的抽象方法（多个不同的具体产品，X=1,2,3..）。</li>
+<li>抽象工厂类或接口（AbstractFactory）：定义具体工厂的公共接口。</li>
+<li>具体工厂类（FactoryX）：定义创建对应具体产品实例的方法。（每个工厂对应一种具体产品，X=1,2,3…）。</li>
+</ol>
+<h2 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h2><p>既然是工厂，当然是要生产产品。那我们来造什么好呢？，，嗯，，，造小孩？NO，NO，NO！我们还是来造英雄吧。</p>
+<p>场景：玩《英雄联盟》（5v5 moba端游）新开一局游戏，游戏开始每个玩家需要选一个信赖的英雄。选好后，英雄会很兴奋，说一句专属的台词。那么程序上是<code>new</code>出该英雄的对象，执行该对象的<code>say()</code>方法。</p>
+<h4 id="常规写法："><a href="#常规写法：" class="headerlink" title="常规写法："></a>常规写法：</h4><p>建立英雄类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Hero &#123;</span><br><span class="line">	protected String name;</span><br><span class="line"></span><br><span class="line">	public abstract void say();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>寒冰射手-艾希类（继承<code>Hero</code>类）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Ashe extends Hero &#123;</span><br><span class="line"></span><br><span class="line">	// 简化构造方法，只弄个名字。</span><br><span class="line">	public Ashe() &#123;</span><br><span class="line">		this.name = &quot;寒冰射手-艾希&quot;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 艾希台词</span><br><span class="line">	// 艾希台词</span><br><span class="line">	@Override</span><br><span class="line">	public void say() &#123;</span><br><span class="line">		System.out.println(name + &quot;：&quot; + &quot;世间万物皆系于一箭之上。&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>类似的写了亚索类，光辉类，盖伦类，剑圣类（全部英雄的话，还有好多）。再写个枚举（可以不需要，仅仅拿来当对应标识使用）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public enum Who &#123;</span><br><span class="line">	Ashe,</span><br><span class="line">	Garen,</span><br><span class="line">	Yi,</span><br><span class="line">	Lux,</span><br><span class="line">	Yasuo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后客户端调用：（菜鸟写法）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Client1 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner can = new Scanner(System.in);</span><br><span class="line">		String name = can.next();</span><br><span class="line">		can.close();</span><br><span class="line">		switch (Who.valueOf(name)) &#123;</span><br><span class="line">		case Ashe:</span><br><span class="line">			// 艾希</span><br><span class="line">			Ashe ashe = new Ashe();</span><br><span class="line">			ashe.say();</span><br><span class="line">			break;</span><br><span class="line">		case Yasuo:</span><br><span class="line">			// 亚索</span><br><span class="line">			Yasuo yasuo = new Yasuo();</span><br><span class="line">			yasuo.say();</span><br><span class="line">			break;</span><br><span class="line">		case Garen:</span><br><span class="line">			// 德玛</span><br><span class="line">			Garen garen = new Garen();</span><br><span class="line">			garen.say();</span><br><span class="line">			break;</span><br><span class="line">		case Lux:</span><br><span class="line">			// 光辉</span><br><span class="line">			Lux lux = new Lux();</span><br><span class="line">			lux.say();</span><br><span class="line">			break;</span><br><span class="line">		case Yi:</span><br><span class="line">			// 剑圣</span><br><span class="line">			Yi yi = new Yi();</span><br><span class="line">			yi.say();</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3262738-d675c52f807885a1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="艾希"></p>
+<p>客户端调用：（好学生写法，<strong>父类的子类引用</strong>）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public class Client2 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner can = new Scanner(System.in);</span><br><span class="line">		String name = can.next();</span><br><span class="line">		can.close();</span><br><span class="line">		Hero hero = null;</span><br><span class="line">		switch (Who.valueOf(name)) &#123;</span><br><span class="line">		case Ashe:</span><br><span class="line">			// 艾希</span><br><span class="line">			hero = new Ashe();</span><br><span class="line">			break;</span><br><span class="line">		case Yasuo:</span><br><span class="line">			// 亚索</span><br><span class="line">			hero = new Yasuo();</span><br><span class="line">			break;</span><br><span class="line">		case Garen:</span><br><span class="line">			// 德玛</span><br><span class="line">			hero = new Garen();</span><br><span class="line">			break;</span><br><span class="line">		case Lux:</span><br><span class="line">			// 光辉</span><br><span class="line">			hero = new Lux();</span><br><span class="line">			break;</span><br><span class="line">		case Yi:</span><br><span class="line">			// 剑圣</span><br><span class="line">			hero = new Yi();</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		hero.say();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里客户端需要知道：</p>
+<ul>
+<li>英雄怎么构造，怎么<code>new</code>出来。（事实上英雄的构造远没有这么简单。）</li>
+<li>每个英雄的方法怎么调用。（这里都是<code>say()</code>方法）<blockquote>
+<p>我们前面提到，利用工厂可以把创建对象的过程封装掉，客户端只要知道得到对象后调用其方法即可。用工厂代替<code>new</code>的过程。那就看看工厂方法怎么去实现吧。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="工厂模式写法"><a href="#工厂模式写法" class="headerlink" title="工厂模式写法"></a>工厂模式写法</h4><p>先建立一个工厂类的接口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface Factory &#123;</span><br><span class="line">	//创建英雄的接口</span><br><span class="line">	public abstract Hero create();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后建立不同英雄对应的工厂实现类。比如艾希工厂：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class AsheFactory implements Factory &#123;</span><br><span class="line">	//实现具体的创建英雄的方法。</span><br><span class="line">	public Hero create() &#123;</span><br><span class="line">		return new Ashe();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同样的建立亚索工厂，光辉工厂，盖伦工厂，剑圣工厂等。</p>
+<p>然后客户端调用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">public class Client3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner can = new Scanner(System.in);</span><br><span class="line">		String name = can.next();</span><br><span class="line">		can.close();</span><br><span class="line">		Factory factory = null;</span><br><span class="line">		switch (Who.valueOf(name)) &#123;</span><br><span class="line">		case Ashe:</span><br><span class="line">			// 艾希工厂</span><br><span class="line">			factory = new AsheFactory();</span><br><span class="line">			break;</span><br><span class="line">		case Yasuo:</span><br><span class="line">			// 亚索工厂</span><br><span class="line">			factory = new YasuoFactory();</span><br><span class="line">			break;</span><br><span class="line">		case Garen:</span><br><span class="line">			// 德玛工厂</span><br><span class="line">			factory = new GarenFactory();</span><br><span class="line">			break;</span><br><span class="line">		case Lux:</span><br><span class="line">			// 光辉工厂</span><br><span class="line">			factory = new LuxFactory();</span><br><span class="line">			break;</span><br><span class="line">		case Yi:</span><br><span class="line">			// 剑圣工厂</span><br><span class="line">			factory = new YiFactory();</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		Hero hero = factory.create();</span><br><span class="line">		hero.say();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>switch</code>中不再是英雄的创建过程，而是选择英雄工厂的过程。根据不同<code>name</code>选择不同的工厂，然后由工厂去实例化具体英雄对象。</p>
+<blockquote>
+<p>新增一个英雄，就新增一个对应的工厂。需要修改的只有客户端代码。</p>
+</blockquote>
+<p>如果不需要新增也不需要减少。我们是不是可以把工厂的选择封装起来。让多家工厂合并成一家工厂。那就是接下来要讲的<strong>简单工厂模式</strong></p>
+<hr>
+<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><blockquote>
+<p><strong>简单工厂模式</strong>（Simple Factory Pattern）是类的创建模式，又叫做<strong>静态工厂方法模式</strong>。就是由一个工厂类根据传入的参量决定创建出哪一种产品类的实例。与上面<strong>工厂模式</strong>的区别就是它只需要一个工厂。</p>
+</blockquote>
+<h4 id="UML类图-1"><a href="#UML类图-1" class="headerlink" title="UML类图"></a>UML类图</h4><p><img src="https://upload-images.jianshu.io/upload_images/3262738-0e5ef8eefbd001f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="简单工厂模式"></p>
+<ol>
+<li>抽象产品类（AbstractProduct）：类中定义抽象一些方法，在子类中具体实现。</li>
+<li>具体产品类（ConcreteProduct）：实现基类中的抽象方法。</li>
+<li>工厂类（Factory）：用以封装实例化对象过程，根据传入的参数决定生产不同的产品。</li>
+</ol>
+<h5 id="利用简单工厂的写法："><a href="#利用简单工厂的写法：" class="headerlink" title="利用简单工厂的写法："></a>利用简单工厂的写法：</h5><p>其他地方不变，将工厂合并成一个工厂类，并在内部写个静态方法，根据传入的参数决定创建不同的英雄对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">public class SimpleFactory &#123;</span><br><span class="line"></span><br><span class="line">	public static Hero create(String name) &#123;</span><br><span class="line">		Hero hero = null;</span><br><span class="line">		switch (Who.valueOf(name)) &#123;</span><br><span class="line">		case Ashe:</span><br><span class="line">			// 艾希</span><br><span class="line">			hero = new Ashe();</span><br><span class="line">			break;</span><br><span class="line">		case Yasuo:</span><br><span class="line">			// 亚索</span><br><span class="line">			hero = new Yasuo();</span><br><span class="line">			break;</span><br><span class="line">		case Garen:</span><br><span class="line">			// 德玛</span><br><span class="line">			hero = new Garen();</span><br><span class="line">			break;</span><br><span class="line">		case Lux:</span><br><span class="line">			// 光辉</span><br><span class="line">			hero = new Lux();</span><br><span class="line">			break;</span><br><span class="line">		case Yi:</span><br><span class="line">			// 剑圣</span><br><span class="line">			hero= new Yi();</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		return hero;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>客户端代码做简单修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class Client4 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner can = new Scanner(System.in);</span><br><span class="line">		String name = can.next();</span><br><span class="line">		can.close();</span><br><span class="line">		// 根据传入的名字构建不同的英雄。</span><br><span class="line">		Hero hero = SimpleFactory.create(name);</span><br><span class="line">		hero.say();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>客户端不需要知道对象的构建过程，只要传入参数得到不同对象。</p>
+<blockquote>
+<p>但是简单工厂是固定的，如果增减英雄他就要修改。不符合<strong>开闭原则</strong>。这时候用前面<strong>工厂模式</strong>好，把修改转移给客户端，而不修改工厂代码。</p>
+</blockquote>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>选个盖伦试试：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3262738-4f670dad3f205f86.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="盖伦"></p>
+<p>不能浪，不能浪。</p>
+<hr>
+<h4 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h4><p>请看下篇<a href="https://www.jianshu.com/p/06fd85ca913b" target="_blank" rel="noopener">【设计模式】抽象工厂模式</a>。</p>
+<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><p>设计模式Demo<br>GitHub源码：<a href="https://github.com/wzmyyj/Design-Pattern" target="_blank" rel="noopener">https://github.com/wzmyyj/Design-Pattern</a></p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        
+        <li class="next">
+            <a href="/2018/05/30/【设计模式】单例模式/">
+                【设计模式】单例模式
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="搜索" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="搜索" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <style>
+        @media(min-width: 768px) {
+            .cube-author img {
+                margin-top: 40px;
+                margin-bottom: 10px;
+            }
+        }
+        @media(max-width: 1120px) and (min-width: 768px) {
+            .cube-author img {
+                width: 128px;
+                height: 128px;
+            }
+        }
+        @media(min-width: 1120px) {
+            .cube-author img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+    
+    <img src="/images/avatar.png" alt="avatar" class="cube-avatar">
+    
+    
+    <span>wzmyyj</span>
+    
+    
+    <a title="good good study">good good study</a>
+    
+    <div class="count">
+        <a class="count articles"><span>3</span>文章</a>
+        <a class="count tags"><span>1</span>标签</a>
+        <a class="count categories"><span>0</span>分类</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: '开启歌词',
+            close: '关闭歌词'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>个人链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="https://assets-cdn.github.com/favicon.ico">
+            
+            <a href="https://github.com/wzmyyj" target="_blank">GitHub</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="https://cdn2.jianshu.io/assets/favicons/favicon-e743bfb1821442341c3ab15bdbe804f7ad97676bd07a770ccc9483473aa76f06.ico">
+            
+            <a href="https://www.jianshu.com/u/1dc736dffcd3" target="_blank">简书</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>友情链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 wzmyyj
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":100,"height":200,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":false,"scale":0.1},"react":{"opacityDefault":1,"opacityOnHover":0.2}});</script></body>
+</html>
