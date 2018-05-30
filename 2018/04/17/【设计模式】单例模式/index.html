@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="wzmyyj">
+    
+    <meta name="description" content="good good study">
+    
+    
+    
+    
+    
+    
+    <title>【设计模式】单例模式 | wzmyyj</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: '加载中';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">开启歌词</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">回到顶部</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" https://upload-images.jianshu.io/upload_images/3262738-1f1bcd714aa0813c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">wzmyyjの个人主页</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(1px);
+            -webkit-filter: blur(1px);
+        
+            z-index: -1;
+            background-image: url('/images/background.jpg');
+            background-repeat: no-repeat;
+            background-position: center -256px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('/images/background.jpg');
+            background-position: center -300px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">wzmyyjの个人主页</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '1900',
+                height: '1100'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">【设计模式】单例模式</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-04-17
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+    <a href="/tags/设计模式/">#设计模式</a>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p><strong>单例模式</strong>（Singleton Pattern）是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例类的特殊类。通过单例模式可以保证系统中一个类只有一个实例而且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。</p>
+<a id="more"></a>
+<ol>
+<li>某个类只能有一个实例。</li>
+<li>它必须自行创建这个实例。</li>
+<li>它必须自行向整个系统提供这个实例。</li>
+</ol>
+<p>单例模式关键点：</p>
+<ul>
+<li>构造函数私有化（不让外部创建此类对象）。</li>
+<li>通过一个静态方法或枚举返回单例类对象。</li>
+<li>多线程环境下，确保单例（难点）。</li>
+<li>反序列化不会重新构建对象。</li>
+</ul>
+<h2 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">	// 单例对象</span><br><span class="line">	private final static Singleton INSTANCE = new Singleton();</span><br><span class="line"></span><br><span class="line">	// 或</span><br><span class="line">	// private final static Singleton INSTANCE;</span><br><span class="line">	// static &#123;</span><br><span class="line">	// INSTANCE = new Singleton();</span><br><span class="line">	// &#125;</span><br><span class="line"></span><br><span class="line">	// 私有构造方法</span><br><span class="line">	private Singleton() &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 公有静态方法用于获取单例对象</span><br><span class="line">	public static Singleton getInstance() &#123;</span><br><span class="line">		return INSTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>线程安全。但是没使用它时，就已经建立了对象，开销内存。</p>
+<h2 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">	// 单例对象</span><br><span class="line">	private static Singleton INSTANCE = null;</span><br><span class="line"></span><br><span class="line">	// 私有构造方法</span><br><span class="line">	private Singleton() &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// synchronized关键字修饰静态方法</span><br><span class="line">	public static synchronized Singleton getInstance() &#123;</span><br><span class="line">		if (null == INSTANCE) &#123;// 空值判断</span><br><span class="line">			INSTANCE = new Singleton();</span><br><span class="line">		&#125;</span><br><span class="line">		return INSTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第一次调用<code>getInstance()</code>时，创建单例对象。<code>synchronized</code>关键字修饰，使<code>getInstance()</code>是一个同步方法。保证多线程情况下单例对象的唯一。但是，同步会耗费资源。</p>
+<h2 id="双检锁式（Double-Check-Lock（DCL））"><a href="#双检锁式（Double-Check-Lock（DCL））" class="headerlink" title="双检锁式（Double Check Lock（DCL））"></a>双检锁式（Double Check Lock（DCL））</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">	// 单例对象，volatile关键字保证INSTANCE的原子性</span><br><span class="line">	private volatile static Singleton INSTANCE = null;</span><br><span class="line"></span><br><span class="line">	// 私有构造方法</span><br><span class="line">	private Singleton() &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 两次空值检查，synchronized关键字同步</span><br><span class="line">	public static Singleton getInstance() &#123;</span><br><span class="line">		if (null == INSTANCE) &#123;</span><br><span class="line">			synchronized (Singleton.class) &#123;</span><br><span class="line">				if (null == INSTANCE) &#123;</span><br><span class="line">					INSTANCE = new Singleton();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return INSTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>语句<code>INSTANCE = new Singleton();</code>在编译时的步骤如下：</p>
+<ol>
+<li>给Singleton的实例分配内存。</li>
+<li>调用Singleton()的构造函数，初始化成员字段。</li>
+<li>将INSTANCE 对象指向分配的内存空间（此时对象非空）。</li>
+</ol>
+<p>Java编译器允许处理器乱序执行。上诉的2，3两步的顺序可能被打乱。打乱后，非空判断的线程不安全。在JDK1.5之后，调整了JVM，具体化了<code>volatile</code>关键字，表示此操作是一个原子操作，不能中间被分割执行。使用<code>volatile</code>关键字会影响性能。</p>
+<h2 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">	// 内部类，包含单例的对象</span><br><span class="line">	private static class SingletonHolder &#123;</span><br><span class="line">		public static final Singleton INSTANCE = new Singleton();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 私有构造方法</span><br><span class="line">	private Singleton() &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 公有静态方法用于获取单例对象</span><br><span class="line">	public static final Singleton getInstance() &#123;</span><br><span class="line">		return SingletonHolder.INSTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一次加载<code>Singleton</code>时，<code>SingletonHolder</code>不会被加载。只用调用<code>getInstance()</code>时，才加载<code>SingletonHolder</code>，并创建<code>INSTANCE</code>。<em>推荐大家使用</em>。</p>
+<h2 id="枚举式"><a href="#枚举式" class="headerlink" title="枚举式"></a>枚举式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public enum SingletonEnum &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>虽说代码简单，<code>enum</code>的实质也是<code>class</code>（编译时，会先翻译成一个class）。优点是反序列化也不会重新生成新的实例。</p>
+<p>前几种方式，如果要避免反序列化也不会重新生成新的实例。需要重写：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private Object readResolve() throws ObjectStreamException&#123;</span><br><span class="line">    return INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="单例管理类"><a href="#单例管理类" class="headerlink" title="单例管理类"></a>单例管理类</h2><p>一个程序可能有多个单例对象。先建立一个上诉管理类。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class SingletonManager &#123;</span><br><span class="line">	// 容器</span><br><span class="line">	private static Map&lt;String, Object&gt; objMap = new HashMap&lt;String, Object&gt;();</span><br><span class="line"></span><br><span class="line">	// 私有构造方法</span><br><span class="line">	private SingletonManager() &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 注册单例</span><br><span class="line">	public static void ascendSingleton(String key, Object instance) &#123;</span><br><span class="line">		if (!objMap.containsKey(key)) &#123;</span><br><span class="line">			objMap.put(key, instance);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 获得单例对象</span><br><span class="line">	public static Object getInstance(String key) &#123;</span><br><span class="line">		return objMap.get(key);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过注册，可以管理多种类型的单例，使用统一接口，隐藏具体实现。<br>使用时：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//注册单例</span><br><span class="line">SingletonManager.ascendSingleton(&quot;SingletonKey&quot;,Singleton.getInstance());</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//获得单例对象</span><br><span class="line">Singleton singleton = SingletonManager.getInstance(&quot;SingletonKey&quot;);</span><br></pre></td></tr></table></figure>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>只有一个对象，全局使用。</li>
+<li>只需要建立一次，占一个内存，节约资源。</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>没有接口，难以扩展。</li>
+<li>生命周期长，如果引用短生命周期对象会内存泄漏。</li>
+</ul>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>通过<em>Java反射机制</em>是能够实例化构造方法为private的类的，那基本上会使所有的Java单例实现失效。</p>
+<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><p>设计模式Demo<br>GitHub源码：<a href="https://github.com/wzmyyj/Design-Pattern" target="_blank" rel="noopener">https://github.com/wzmyyj/Design-Pattern</a></p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2018/05/18/【设计模式】工厂模式/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                【设计模式】工厂模式
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2018/04/15/【设计模式】面向对象六大原则/">
+                【设计模式】面向对象六大原则
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="搜索" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="搜索" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <style>
+        @media(min-width: 768px) {
+            .cube-author img {
+                margin-top: 40px;
+                margin-bottom: 10px;
+            }
+        }
+        @media(max-width: 1120px) and (min-width: 768px) {
+            .cube-author img {
+                width: 128px;
+                height: 128px;
+            }
+        }
+        @media(min-width: 1120px) {
+            .cube-author img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+    
+    <img src="/images/avatar.png" alt="avatar" class="cube-avatar">
+    
+    
+    <span>wzmyyj</span>
+    
+    
+    <a title="good good study">good good study</a>
+    
+    <div class="count">
+        <a class="count articles"><span>3</span>文章</a>
+        <a class="count tags"><span>1</span>标签</a>
+        <a class="count categories"><span>0</span>分类</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: '开启歌词',
+            close: '关闭歌词'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>个人链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="https://assets-cdn.github.com/favicon.ico">
+            
+            <a href="https://github.com/wzmyyj" target="_blank">GitHub</a>
+        </li>
+        
+        <li>
+            
+            
+            <img src="https://cdn2.jianshu.io/assets/favicons/favicon-e743bfb1821442341c3ab15bdbe804f7ad97676bd07a770ccc9483473aa76f06.ico">
+            
+            <a href="https://www.jianshu.com/u/1dc736dffcd3" target="_blank">简书</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>友情链接</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 wzmyyj
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"superSample":2,"width":100,"height":200,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":false,"scale":0.1},"react":{"opacityDefault":1,"opacityOnHover":0.2}});</script></body>
+</html>

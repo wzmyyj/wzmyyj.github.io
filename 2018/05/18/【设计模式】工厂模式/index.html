@@ -169,7 +169,7 @@
         <div class="cube-article-date">
             <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
             <!-- moment.js对象 -->
-            2018-05-30
+            2018-05-18
         </div>
         <div class="cube-article-tags">
     <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
@@ -201,19 +201,15 @@
 <p>这里客户端需要知道：</p>
 <ul>
 <li>英雄怎么构造，怎么<code>new</code>出来。（事实上英雄的构造远没有这么简单。）</li>
-<li>每个英雄的方法怎么调用。（这里都是<code>say()</code>方法）<blockquote>
-<p>我们前面提到，利用工厂可以把创建对象的过程封装掉，客户端只要知道得到对象后调用其方法即可。用工厂代替<code>new</code>的过程。那就看看工厂方法怎么去实现吧。</p>
-</blockquote>
-</li>
+<li>每个英雄的方法怎么调用。（这里都是<code>say()</code>方法）</li>
 </ul>
+<p>我们前面提到，利用工厂可以把创建对象的过程封装掉，客户端只要知道得到对象后调用其方法即可。用工厂代替<code>new</code>的过程。那就看看工厂方法怎么去实现吧。</p>
 <h4 id="工厂模式写法"><a href="#工厂模式写法" class="headerlink" title="工厂模式写法"></a>工厂模式写法</h4><p>先建立一个工厂类的接口：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public interface Factory &#123;</span><br><span class="line">	//创建英雄的接口</span><br><span class="line">	public abstract Hero create();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>然后建立不同英雄对应的工厂实现类。比如艾希工厂：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class AsheFactory implements Factory &#123;</span><br><span class="line">	//实现具体的创建英雄的方法。</span><br><span class="line">	public Hero create() &#123;</span><br><span class="line">		return new Ashe();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>同样的建立亚索工厂，光辉工厂，盖伦工厂，剑圣工厂等。</p>
 <p>然后客户端调用：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Client3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner can = new Scanner(System.in);</span><br><span class="line">		String name = can.next();</span><br><span class="line">		can.close();</span><br><span class="line">		Factory factory = null;</span><br><span class="line">		switch (Who.valueOf(name)) &#123;</span><br><span class="line">		case Ashe:</span><br><span class="line">			// 艾希工厂</span><br><span class="line">			factory = new AsheFactory();</span><br><span class="line">			break;</span><br><span class="line">		case Yasuo:</span><br><span class="line">			// 亚索工厂</span><br><span class="line">			factory = new YasuoFactory();</span><br><span class="line">			break;</span><br><span class="line">		case Garen:</span><br><span class="line">			// 德玛工厂</span><br><span class="line">			factory = new GarenFactory();</span><br><span class="line">			break;</span><br><span class="line">		case Lux:</span><br><span class="line">			// 光辉工厂</span><br><span class="line">			factory = new LuxFactory();</span><br><span class="line">			break;</span><br><span class="line">		case Yi:</span><br><span class="line">			// 剑圣工厂</span><br><span class="line">			factory = new YiFactory();</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		Hero hero = factory.create();</span><br><span class="line">		hero.say();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><code>switch</code>中不再是英雄的创建过程，而是选择英雄工厂的过程。根据不同<code>name</code>选择不同的工厂，然后由工厂去实例化具体英雄对象。</p>
-<blockquote>
 <p>新增一个英雄，就新增一个对应的工厂。需要修改的只有客户端代码。</p>
-</blockquote>
 <p>如果不需要新增也不需要减少。我们是不是可以把工厂的选择封装起来。让多家工厂合并成一家工厂。那就是接下来要讲的<strong>简单工厂模式</strong></p>
 <hr>
 <h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p><strong>简单工厂模式</strong>（Simple Factory Pattern）是类的创建模式，又叫做<strong>静态工厂方法模式</strong>。就是由一个工厂类根据传入的参量决定创建出哪一种产品类的实例。与上面<strong>工厂模式</strong>的区别就是它只需要一个工厂。</p>
@@ -226,9 +222,7 @@
 <h5 id="利用简单工厂的写法："><a href="#利用简单工厂的写法：" class="headerlink" title="利用简单工厂的写法："></a>利用简单工厂的写法：</h5><p>其他地方不变，将工厂合并成一个工厂类，并在内部写个静态方法，根据传入的参数决定创建不同的英雄对象：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class SimpleFactory &#123;</span><br><span class="line"></span><br><span class="line">	public static Hero create(String name) &#123;</span><br><span class="line">		Hero hero = null;</span><br><span class="line">		switch (Who.valueOf(name)) &#123;</span><br><span class="line">		case Ashe:</span><br><span class="line">			// 艾希</span><br><span class="line">			hero = new Ashe();</span><br><span class="line">			break;</span><br><span class="line">		case Yasuo:</span><br><span class="line">			// 亚索</span><br><span class="line">			hero = new Yasuo();</span><br><span class="line">			break;</span><br><span class="line">		case Garen:</span><br><span class="line">			// 德玛</span><br><span class="line">			hero = new Garen();</span><br><span class="line">			break;</span><br><span class="line">		case Lux:</span><br><span class="line">			// 光辉</span><br><span class="line">			hero = new Lux();</span><br><span class="line">			break;</span><br><span class="line">		case Yi:</span><br><span class="line">			// 剑圣</span><br><span class="line">			hero= new Yi();</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		return hero;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>客户端代码做简单修改：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Client4 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner can = new Scanner(System.in);</span><br><span class="line">		String name = can.next();</span><br><span class="line">		can.close();</span><br><span class="line">		// 根据传入的名字构建不同的英雄。</span><br><span class="line">		Hero hero = SimpleFactory.create(name);</span><br><span class="line">		hero.say();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>客户端不需要知道对象的构建过程，只要传入参数得到不同对象。</p>
-<blockquote>
 <p>但是简单工厂是固定的，如果增减英雄他就要修改。不符合<strong>开闭原则</strong>。这时候用前面<strong>工厂模式</strong>好，把修改转移给客户端，而不修改工厂代码。</p>
-</blockquote>
 <h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><p>选个盖伦试试：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3262738-4f670dad3f205f86.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="盖伦"></p>
 <p>不能浪，不能浪。</p>
@@ -244,7 +238,7 @@
         
         
         <li class="next">
-            <a href="/2018/05/30/【设计模式】单例模式/">
+            <a href="/2018/04/17/【设计模式】单例模式/">
                 【设计模式】单例模式
                 <i class="cube-icon cube-next" aria-hidden="true"></i>
             </a>

@@ -12,7 +12,7 @@
     
     
     
-    <title>【设计模式】单例模式 | wzmyyj</title>
+    <title>【设计模式】面向对象六大原则 | wzmyyj</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -163,13 +163,13 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title">【设计模式】单例模式</h1>
+    <h1 class="title">【设计模式】面向对象六大原则</h1>
     
     <div class="cube-article-header">
         <div class="cube-article-date">
             <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
             <!-- moment.js对象 -->
-            2018-05-30
+            2018-04-15
         </div>
         <div class="cube-article-tags">
     <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
@@ -181,53 +181,44 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p><strong>单例模式</strong>（Singleton Pattern）是一种常用的软件设计模式。在它的核心结构中只包含一个被称为单例类的特殊类。通过单例模式可以保证系统中一个类只有一个实例而且该实例易于外界访问，从而方便对实例个数的控制并节约系统资源。</p>
+        <h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><p><strong>设计模式</strong>（Design pattern）是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性。设计模式于己于他人于系统都是多赢的，设计模式使代码编制真正工程化。设计模式分为三种类型，分别是：创建型模式、结构型模式，行为型模式。</p>
 <a id="more"></a>
-<blockquote>
-<ol>
-<li>某个类只能有一个实例。</li>
-<li>它必须自行创建这个实例。</li>
-<li>它必须自行向整个系统提供这个实例。</li>
-</ol>
-</blockquote>
-<p>单例模式关键点：</p>
+<h2 id="23种设计模式"><a href="#23种设计模式" class="headerlink" title="23种设计模式"></a>23种设计模式</h2><ul>
+<li>创建型模式，共5种：<a href="https://www.jianshu.com/p/010bf3bc846e" target="_blank" rel="noopener">单例模式</a>、<a href="https://www.jianshu.com/p/539975502ad1" target="_blank" rel="noopener">工厂模式</a>、<a href="https://www.jianshu.com/p/06fd85ca913b" target="_blank" rel="noopener">抽象工厂模式</a>、建造者模式、原型模式。</li>
+<li>结构型模式，共7种：适配器模式、装饰器模式、代理模式、外观模式、桥接模式、组合模式、享元模式。</li>
+<li>行为型模式，共11种：策略模式、模板方法模式、观察者模式、迭代子模式、责任链模式、命令模式、备忘录模式、状态模式、访问者模式、中介者模式、解释器模式。</li>
+</ul>
+<h2 id="六大原则"><a href="#六大原则" class="headerlink" title="六大原则"></a>六大原则</h2><h4 id="1，单一职责原则（Single-Responsibility-Principle-SRP）"><a href="#1，单一职责原则（Single-Responsibility-Principle-SRP）" class="headerlink" title="1，单一职责原则（Single Responsibility Principle, SRP）"></a>1，单一职责原则（Single Responsibility Principle, SRP）</h4><p>定义：一个类应只包含单一的职责。</p>
 <ul>
-<li>构造函数私有化（不让外部创建此类对象）。</li>
-<li>通过一个静态方法或枚举返回单例类对象。</li>
-<li>多线程环境下，确保单例（难点）。</li>
-<li>反序列化不会重新构建对象。</li>
+<li>如果一个类职责过多，代码量就多，而使用起来显得过分冗余，不利于复用。</li>
+<li>如果修改某个职责，可能影响另一个职责。</li>
 </ul>
-<h2 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">	// 单例对象</span><br><span class="line">	private final static Singleton INSTANCE = new Singleton();</span><br><span class="line"></span><br><span class="line">	// 或</span><br><span class="line">	// private final static Singleton INSTANCE;</span><br><span class="line">	// static &#123;</span><br><span class="line">	// INSTANCE = new Singleton();</span><br><span class="line">	// &#125;</span><br><span class="line"></span><br><span class="line">	// 私有构造方法</span><br><span class="line">	private Singleton() &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 公有静态方法用于获取单例对象</span><br><span class="line">	public static Singleton getInstance() &#123;</span><br><span class="line">		return INSTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>线程安全。但是没使用它时，就已经建立了对象，开销内存。</p>
-<h2 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">	// 单例对象</span><br><span class="line">	private static Singleton INSTANCE = null;</span><br><span class="line"></span><br><span class="line">	// 私有构造方法</span><br><span class="line">	private Singleton() &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// synchronized关键字修饰静态方法</span><br><span class="line">	public static synchronized Singleton getInstance() &#123;</span><br><span class="line">		if (null == INSTANCE) &#123;// 空值判断</span><br><span class="line">			INSTANCE = new Singleton();</span><br><span class="line">		&#125;</span><br><span class="line">		return INSTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第一次调用<code>getInstance()</code>时，创建单例对象。<code>synchronized</code>关键字修饰，使<code>getInstance()</code>是一个同步方法。保证多线程情况下单例对象的唯一。但是，同步会耗费资源。</p>
-<h2 id="双检锁式（Double-Check-Lock（DCL））"><a href="#双检锁式（Double-Check-Lock（DCL））" class="headerlink" title="双检锁式（Double Check Lock（DCL））"></a>双检锁式（Double Check Lock（DCL））</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">	// 单例对象，volatile关键字保证INSTANCE的原子性</span><br><span class="line">	private volatile static Singleton INSTANCE = null;</span><br><span class="line"></span><br><span class="line">	// 私有构造方法</span><br><span class="line">	private Singleton() &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 两次空值检查，synchronized关键字同步</span><br><span class="line">	public static Singleton getInstance() &#123;</span><br><span class="line">		if (null == INSTANCE) &#123;</span><br><span class="line">			synchronized (Singleton.class) &#123;</span><br><span class="line">				if (null == INSTANCE) &#123;</span><br><span class="line">					INSTANCE = new Singleton();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return INSTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>语句<code>INSTANCE = new Singleton();</code>在编译时的步骤如下：</p>
-<ol>
-<li>给Singleton的实例分配内存。</li>
-<li>调用Singleton()的构造函数，初始化成员字段。</li>
-<li>将INSTANCE 对象指向分配的内存空间（此时对象非空）。</li>
-</ol>
-<p>Java编译器允许处理器乱序执行。上诉的2，3两步的顺序可能被打乱。打乱后，非空判断的线程不安全。在JDK1.5之后，调整了JVM，具体化了<code>volatile</code>关键字，表示此操作是一个原子操作，不能中间被分割执行。使用<code>volatile</code>关键字会影响性能。</p>
-<h2 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">	// 内部类，包含单例的对象</span><br><span class="line">	private static class SingletonHolder &#123;</span><br><span class="line">		public static final Singleton INSTANCE = new Singleton();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 私有构造方法</span><br><span class="line">	private Singleton() &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 公有静态方法用于获取单例对象</span><br><span class="line">	public static final Singleton getInstance() &#123;</span><br><span class="line">		return SingletonHolder.INSTANCE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第一次加载<code>Singleton</code>时，<code>SingletonHolder</code>不会被加载。只用调用<code>getInstance()</code>时，才加载<code>SingletonHolder</code>，并创建<code>INSTANCE</code>。<em>推荐大家使用</em>。</p>
-<h2 id="枚举式"><a href="#枚举式" class="headerlink" title="枚举式"></a>枚举式</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public enum SingletonEnum &#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>虽说代码简单，<code>enum</code>的实质也是<code>class</code>（编译时，会先翻译成一个class）。优点是反序列化也不会重新生成新的实例。</p>
-<p>前几种方式，如果要避免反序列化也不会重新生成新的实例。需要重写：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private Object readResolve() throws ObjectStreamException&#123;</span><br><span class="line">    return INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="单例管理类"><a href="#单例管理类" class="headerlink" title="单例管理类"></a>单例管理类</h2><p>一个程序可能有多个单例对象。先建立一个上诉管理类。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class SingletonManager &#123;</span><br><span class="line">	// 容器</span><br><span class="line">	private static Map&lt;String, Object&gt; objMap = new HashMap&lt;String, Object&gt;();</span><br><span class="line"></span><br><span class="line">	// 私有构造方法</span><br><span class="line">	private SingletonManager() &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 注册单例</span><br><span class="line">	public static void ascendSingleton(String key, Object instance) &#123;</span><br><span class="line">		if (!objMap.containsKey(key)) &#123;</span><br><span class="line">			objMap.put(key, instance);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	// 获得单例对象</span><br><span class="line">	public static Object getInstance(String key) &#123;</span><br><span class="line">		return objMap.get(key);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>通过注册，可以管理多种类型的单例，使用统一接口，隐藏具体实现。<br>使用时：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//注册单例</span><br><span class="line">SingletonManager.ascendSingleton(&quot;SingletonKey&quot;,Singleton.getInstance());</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//获得单例对象</span><br><span class="line">Singleton singleton = SingletonManager.getInstance(&quot;SingletonKey&quot;);</span><br></pre></td></tr></table></figure>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
-<li>只有一个对象，全局使用。</li>
-<li>只需要建立一次，占一个内存，节约资源。</li>
+<h4 id="2，开放封闭原则-Open-ClosedPrinciple-OCP"><a href="#2，开放封闭原则-Open-ClosedPrinciple-OCP" class="headerlink" title="2，开放封闭原则(Open - ClosedPrinciple ,OCP)"></a>2，开放封闭原则(Open - ClosedPrinciple ,OCP)</h4><p>定义：一个模块、类、函数应当是对修改关闭，对扩展开放。</p>
+<ul>
+<li>修改原有的代码可能会导致原本正常的功能出现问题。</li>
+<li>当需求改变时，最好通过扩展来实现，增加新的方法或类满足需求，而不是去修改原有代码。</li>
 </ul>
-<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
-<li>没有接口，难以扩展。</li>
-<li>生命周期长，如果引用短生命周期对象会内存泄漏。</li>
+<h4 id="3，里氏代换原则-Liskov-Substitution-Principle-LSP"><a href="#3，里氏代换原则-Liskov-Substitution-Principle-LSP" class="headerlink" title="3，里氏代换原则( Liskov Substitution Principle ,LSP )"></a>3，里氏代换原则( Liskov Substitution Principle ,LSP )</h4><p>定义：使用父类的地方能够使用子类来替换，反过来，则不行。</p>
+<ul>
+<li>使用子类对象去替换父类对象，程序将不会产生错误。</li>
+<li>程序中尽量使用基类类型来对对象进行定义，如父类的子类引用，而在运行时再确定其子类类型，用子类对象来替换父类对象。</li>
 </ul>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><blockquote>
-<p>通过Java反射机制是能够实例化构造方法为private的类的，那基本上会使所有的Java单例实现失效。</p>
-</blockquote>
+<h4 id="4，依赖倒转原则-Dependence-Inversion-Principle-DIP"><a href="#4，依赖倒转原则-Dependence-Inversion-Principle-DIP" class="headerlink" title="4，依赖倒转原则( Dependence Inversion Principle ,DIP )"></a>4，依赖倒转原则( Dependence Inversion Principle ,DIP )</h4><p>定义：抽象不应该依赖于细节，细节应当依赖于抽象。</p>
+<ul>
+<li>即要面向接口编程，而不是面向具体实现去编程。</li>
+<li>高层模块不应该依赖低层模块，应该去依赖抽象。</li>
+<li>方法定义时，传入对象用抽象类型，实际使用时传入子类对象。</li>
+</ul>
+<h4 id="5，接口隔离法则-Interface-Segregation-Principle，ISL）"><a href="#5，接口隔离法则-Interface-Segregation-Principle，ISL）" class="headerlink" title="5，接口隔离法则(Interface Segregation Principle，ISL）"></a>5，接口隔离法则(Interface Segregation Principle，ISL）</h4><p>定义：一个类对另一个类的依赖应该建立在最小的接口上。</p>
+<ul>
+<li>一个类不应该依赖他不需要的接口，接口的方法全要用得到。</li>
+<li>接口粒度要尽可能小，尽量不能再分割。一个接口的方法过多，可以拆成多个接口。</li>
+</ul>
+<h4 id="6，迪米特法则-Law-of-Demeter-LoD"><a href="#6，迪米特法则-Law-of-Demeter-LoD" class="headerlink" title="6，迪米特法则(Law of Demeter, LoD)"></a>6，迪米特法则(Law of Demeter, LoD)</h4><p>定义：一个类尽量不要与其他类发生关系</p>
+<ul>
+<li>一个类对其他类知道的越少越好，耦合越小。导入的东西越少越好。</li>
+<li>当修改一个类时，其他类的影响就越小，发生错误的可能性就越小。</li>
+</ul>
 <h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><p>设计模式Demo<br>GitHub源码：<a href="https://github.com/wzmyyj/Design-Pattern" target="_blank" rel="noopener">https://github.com/wzmyyj/Design-Pattern</a></p>
 
     </div>
@@ -237,19 +228,12 @@
     <ul>
         
         <li class="prev">
-            <a href="/2018/05/30/【设计模式】工厂模式/">
+            <a href="/2018/04/17/【设计模式】单例模式/">
                 <i class="cube-icon cube-prev" aria-hidden="true"></i>
-                【设计模式】工厂模式
+                【设计模式】单例模式
             </a>
         </li>
         
-        
-        <li class="next">
-            <a href="/2018/05/30/【设计模式】面向对象六大原则/">
-                【设计模式】面向对象六大原则
-                <i class="cube-icon cube-next" aria-hidden="true"></i>
-            </a>
-        </li>
         
     </ul>
 </div>
