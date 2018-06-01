@@ -187,7 +187,7 @@ body
     border: 1px solid transparent
     &:hover,&.current
       border-bottom: 1px solid #fff
-      -webkit-box-shadow: 0 0 0px #adc2d7 inset
+      -webkit-box-shadow: 0 0 1px #adc2d7 inset
       box-shadow: 0 0 0px #00bbff inset
 /* sidebar */      
 #sidebar 
@@ -277,7 +277,7 @@ body
   left: -50px;
   box-sizing content-box
   padding 20px
-  background: #FFFFFFCC
+  background: #FFFFFF
   color: #333
   border-radius: 4px
   -webkit-box-shadow: 1px 2px 3px #adc2d7
