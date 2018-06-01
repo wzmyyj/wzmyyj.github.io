@@ -185,9 +185,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
   color: #333;
-  width: 100%;
-  height: 100%;
-  background: #d8e2eb url("../img/bg.jpg") no-repeat top center;
+  background: #f0f0f5 url("../images/mobile.jpg") no-repeat;
+  background-size: 100%;
 }
 .layout-g {
   letter-spacing: -0.31em;
@@ -275,8 +274,8 @@ body {
 #nav-menu a:hover,
 #nav-menu a.current {
   border-bottom: 1px solid #fff;
-  -webkit-box-shadow: 0 0 10px #adc2d7 inset;
-  box-shadow: 0 0 10px #adc2d7 inset;
+  -webkit-box-shadow: 0 0 1px #adc2d7 inset;
+  box-shadow: 0 0 0px #0bf inset;
 }
 /* sidebar */
 #sidebar {
@@ -291,7 +290,7 @@ body {
   -webkit-box-shadow: 1px 2px 3px #adc2d7;
   box-shadow: 1px 2px 3px #adc2d7;
   border: 1px solid #adc2d7;
-  background: #fff;
+  background: rgba(255,255,255,0.8);
 }
 #sidebar .widget a {
   color: #333;
@@ -374,7 +373,7 @@ body {
   line-height: 16px;
   width: 100%;
   border-radius: 15px;
-  background: #fff;
+  background: rgba(255,255,255,0.8);
   -webkit-box-shadow: 1px 2px 3px #adc2d7;
   box-shadow: 1px 2px 3px #adc2d7;
   border: 1px solid #adc2d7;
@@ -386,7 +385,7 @@ body {
   left: -50px;
   box-sizing: content-box;
   padding: 20px;
-  background: #fff;
+  background: rgba(255,255,255,0.8);
   color: #333;
   border-radius: 4px;
   -webkit-box-shadow: 1px 2px 3px #adc2d7;
@@ -476,7 +475,7 @@ body {
 /* post */
 .post {
   padding: 25px;
-  background: #fff;
+  background: rgba(255,255,255,0.8);
   border-radius: 4px;
   -webkit-box-shadow: 1px 2px 3px #adc2d7;
   box-shadow: 1px 2px 3px #adc2d7;
@@ -879,7 +878,7 @@ body {
   padding: 5px 5px;
 }
 .page-navigator .current {
-  background: #fff;
+  background: rgba(255,255,255,0.8);
 }
 .page-navigator .current:hover {
   border-bottom-color: #adc2d7;
