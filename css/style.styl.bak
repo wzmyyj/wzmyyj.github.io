@@ -913,17 +913,17 @@ table
     input 
       color:#333
       background: #FFFFFFCC
-      border: 1px solid #e2eaf1;
+      border: 1px solid #adc2d7;
       -webkit-box-shadow: 0 0 10px #adc2d7 inset;
       box-shadow: 0 0 10px #adc2d7 inset;
       &:-ms-input-placeholder
-        color: #0FF
+        color: #666
       &:-moz-placeholder
-        color: #0FF
+        color: #666
       &::-moz-placeholder
-        color: #0FF
+        color: #666
       &::-webkit-input-placeholder
-        color: #0FF
+        color: #666
   #nav-menu
     position: relative
     text-align: center

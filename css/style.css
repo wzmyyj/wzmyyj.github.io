@@ -1172,8 +1172,8 @@ table td {
     color: #333;
     background: rgba(255,255,255,0.8);
     border: 1px solid #adc2d7;
-    -webkit-box-shadow: 0 0 10px #adc2d7 inset;
-    box-shadow: 0 0 10px #adc2d7 inset;
+    -webkit-box-shadow: 1px 2px 3px #adc2d7;
+    box-shadow: 1px 2px 3px #adc2d7;
   }
   #search-form input:-ms-input-placeholder {
     color: #666;
