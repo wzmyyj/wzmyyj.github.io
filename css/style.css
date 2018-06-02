@@ -1176,16 +1176,16 @@ table td {
     box-shadow: 0 0 10px #adc2d7 inset;
   }
   #search-form input:-ms-input-placeholder {
-    color: #fff;
+    color: #0ff;
   }
   #search-form input:-moz-placeholder {
-    color: #fff;
+    color: #0ff;
   }
   #search-form input::-moz-placeholder {
-    color: #fff;
+    color: #0ff;
   }
   #search-form input::-webkit-input-placeholder {
-    color: #fff;
+    color: #0ff;
   }
   #nav-menu {
     position: relative;

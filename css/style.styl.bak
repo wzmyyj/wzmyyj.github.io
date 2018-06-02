@@ -909,10 +909,10 @@ table
     bottom: 0
     width: 100%
     label 
-      color:#FFF
+      color:#333
     input 
-      color:#FFF
-      background: transparent
+      color:#333
+      background: #FFFFFFCC
       border: 1px solid #e2eaf1;
       -webkit-box-shadow: 0 0 10px #adc2d7 inset;
       box-shadow: 0 0 10px #adc2d7 inset;
