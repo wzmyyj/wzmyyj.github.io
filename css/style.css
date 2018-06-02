@@ -1166,11 +1166,11 @@ table td {
     width: 100%;
   }
   #search-form label {
-    color: #fff;
+    color: #333;
   }
   #search-form input {
-    color: #fff;
-    background: transparent;
+    color: #333;
+    background: rgba(255,255,255,0.8);
     border: 1px solid #e2eaf1;
     -webkit-box-shadow: 0 0 10px #adc2d7 inset;
     box-shadow: 0 0 10px #adc2d7 inset;
