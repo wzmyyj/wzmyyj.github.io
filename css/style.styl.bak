@@ -917,13 +917,13 @@ table
       -webkit-box-shadow: 0 0 10px #adc2d7 inset;
       box-shadow: 0 0 10px #adc2d7 inset;
       &:-ms-input-placeholder
-        color: #FFF
+        color: #0FF
       &:-moz-placeholder
-        color: #FFF
+        color: #0FF
       &::-moz-placeholder
-        color: #FFF
+        color: #0FF
       &::-webkit-input-placeholder
-        color: #FFF
+        color: #0FF
   #nav-menu
     position: relative
     text-align: center
