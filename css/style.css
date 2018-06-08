@@ -290,7 +290,7 @@ body {
   -webkit-box-shadow: 1px 2px 3px #adc2d7;
   box-shadow: 1px 2px 3px #adc2d7;
   border: 1px solid #adc2d7;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.867);
 }
 #sidebar .widget a {
   color: #333;
@@ -373,7 +373,7 @@ body {
   line-height: 16px;
   width: 100%;
   border-radius: 15px;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.867);
   -webkit-box-shadow: 1px 2px 3px #adc2d7;
   box-shadow: 1px 2px 3px #adc2d7;
   border: 1px solid #adc2d7;
@@ -475,7 +475,7 @@ body {
 /* post */
 .post {
   padding: 25px;
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.867);
   border-radius: 4px;
   -webkit-box-shadow: 1px 2px 3px #adc2d7;
   box-shadow: 1px 2px 3px #adc2d7;
@@ -878,7 +878,7 @@ body {
   padding: 5px 5px;
 }
 .page-navigator .current {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.867);
 }
 .page-navigator .current:hover {
   border-bottom-color: #adc2d7;
@@ -1171,7 +1171,7 @@ table td {
   #search-form input {
     color: #333;
     height: 36px;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.867);
     border: 1px solid #adc2d7;
     -webkit-box-shadow: 1px 2px 3px #adc2d7;
     box-shadow: 1px 2px 3px #adc2d7;
