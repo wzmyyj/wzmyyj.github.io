@@ -201,7 +201,7 @@ body
     -webkit-box-shadow: 1px 2px 3px #adc2d7
     box-shadow: 1px 2px 3px #adc2d7
     border: 1px solid #adc2d7
-    background: #FFFFFFCC
+    background: #FFFFFFDD
     a 
       color:#333
       &:hover 
@@ -266,7 +266,7 @@ body
     line-height: 16px
     width: 100%
     border-radius: 15px
-    background: #FFFFFFCC
+    background: #FFFFFFDD
     -webkit-box-shadow: 1px 2px 3px #adc2d7;
     box-shadow: 1px 2px 3px #adc2d7;
     border: 1px solid #adc2d7;
@@ -353,7 +353,7 @@ body
 /* post */
 .post
   padding: 25px
-  background: #FFFFFFCC
+  background: #FFFFFFDD
   border-radius: 4px
   -webkit-box-shadow: 1px 2px 3px #ADC2D7
   box-shadow: 1px 2px 3px #ADC2D7
@@ -679,7 +679,7 @@ body
     border: none
     padding: 5px 5px
   .current
-    background: #FFFFFFCC
+    background: #FFFFFFDD
     &:hover
       border-bottom-color: #adc2d7
   .page-number,.extend
@@ -913,7 +913,7 @@ table
     input 
       color:#333
       height: 36px
-      background: #FFFFFFCC
+      background: #FFFFFFDD
       border: 1px solid #adc2d7;
       -webkit-box-shadow: 1px 2px 3px #adc2d7;
       box-shadow: 1px 2px 3px #adc2d7;
