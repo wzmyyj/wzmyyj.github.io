@@ -5,9 +5,9 @@
   <subtitle>a personal page of wzmyyj</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://wzmyyj.top/"/>
+  <link href="https://wzmyyj.top/"/>
   <updated>2018-06-12T09:47:00.470Z</updated>
-  <id>http://wzmyyj.top/</id>
+  <id>https://wzmyyj.top/</id>
   
   <author>
     <name>wzmyyj</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>【IT】关于HTTP协议你需要知道这些</title>
-    <link href="http://wzmyyj.top/2018/06/09/it_5/"/>
-    <id>http://wzmyyj.top/2018/06/09/it_5/</id>
+    <link href="https://wzmyyj.top/2018/06/09/it_5/"/>
+    <id>https://wzmyyj.top/2018/06/09/it_5/</id>
     <published>2018-06-09T03:45:50.000Z</published>
     <updated>2018-06-12T09:47:00.470Z</updated>
     
@@ -32,14 +32,14 @@
     </summary>
     
     
-      <category term="IT" scheme="http://wzmyyj.top/tags/IT/"/>
+      <category term="IT" scheme="https://wzmyyj.top/tags/IT/"/>
     
   </entry>
   
   <entry>
     <title>【java】获取中文首字母</title>
-    <link href="http://wzmyyj.top/2018/06/08/java_2/"/>
-    <id>http://wzmyyj.top/2018/06/08/java_2/</id>
+    <link href="https://wzmyyj.top/2018/06/08/java_2/"/>
+    <id>https://wzmyyj.top/2018/06/08/java_2/</id>
     <published>2018-06-08T08:21:29.000Z</published>
     <updated>2018-06-23T15:52:55.680Z</updated>
     
@@ -52,14 +52,14 @@
     </summary>
     
     
-      <category term="java" scheme="http://wzmyyj.top/tags/java/"/>
+      <category term="java" scheme="https://wzmyyj.top/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>【IT】Hexo+GitHub搭建个人博客网站</title>
-    <link href="http://wzmyyj.top/2018/06/06/it_4/"/>
-    <id>http://wzmyyj.top/2018/06/06/it_4/</id>
+    <link href="https://wzmyyj.top/2018/06/06/it_4/"/>
+    <id>https://wzmyyj.top/2018/06/06/it_4/</id>
     <published>2018-06-06T08:44:28.000Z</published>
     <updated>2018-06-12T09:47:58.768Z</updated>
     
@@ -72,34 +72,34 @@
     </summary>
     
     
-      <category term="IT" scheme="http://wzmyyj.top/tags/IT/"/>
+      <category term="IT" scheme="https://wzmyyj.top/tags/IT/"/>
     
   </entry>
   
   <entry>
     <title>【IT】提问的智慧</title>
-    <link href="http://wzmyyj.top/2018/06/04/it_3/"/>
-    <id>http://wzmyyj.top/2018/06/04/it_3/</id>
+    <link href="https://wzmyyj.top/2018/06/04/it_3/"/>
+    <id>https://wzmyyj.top/2018/06/04/it_3/</id>
     <published>2018-06-04T12:08:19.000Z</published>
     <updated>2018-06-05T04:32:26.125Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="《提问的智慧》"><a href="#《提问的智慧》" class="headerlink" title="《提问的智慧》"></a>《提问的智慧》</h2><p><strong>艾瑞克.史蒂文.雷蒙德（Eric Steven Raymond）</strong>Thyrsus Enterprises <a href="mailto:&#101;&#115;&#114;&#x40;&#116;&#x68;&#x79;&#x72;&#115;&#117;&#x73;&#x2e;&#99;&#111;&#x6d;" target="_blank" rel="noopener">&#101;&#115;&#114;&#x40;&#116;&#x68;&#x79;&#x72;&#115;&#117;&#x73;&#x2e;&#99;&#111;&#x6d;</a><br><strong>瑞克.莫恩（Rick Moen）</strong> <a href="mailto:&#x72;&#101;&#115;&#112;&#111;&#x6e;&#100;&#45;&#x61;&#117;&#116;&#111;&#x40;&#x6c;&#x69;&#x6e;&#x75;&#120;&#x6d;&#x61;&#102;&#105;&#x61;&#46;&#99;&#x6f;&#x6d;" target="_blank" rel="noopener">&#x72;&#101;&#115;&#112;&#111;&#x6e;&#100;&#45;&#x61;&#117;&#116;&#111;&#x40;&#x6c;&#x69;&#x6e;&#x75;&#120;&#x6d;&#x61;&#102;&#105;&#x61;&#46;&#99;&#x6f;&#x6d;</a><br>版权©2001, 2006 Eric S. Raymond, Rick Moen<br><a id="more"></a></p><h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://github.com/tvvocold/How-To-Ask-Questions-The-Smart-Way/blob/master/README.md" target="_blank" rel="noopener">中文：《提问的智慧》</a>   </p><p><a href="http://www.catb.org/~esr/faqs/smart-questions.html" target="_blank" rel="noopener">原文：《How To Ask Questions The Smart Way》</a></p><p>要求声明：（我们不提供该项目的服务支持！）</p><p><img src="https://upload-images.jianshu.io/upload_images/3262738-4ab43d3ebaf85698.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配一张图"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="《提问的智慧》"><a href="#《提问的智慧》" class="headerlink" title="《提问的智慧》"></a>《提问的智慧》</h2><p><strong>艾瑞克.史蒂文.雷蒙德（Eric Steven Raymond）</strong>Thyrsus Enterprises <a href="mailto:&#101;&#x73;&#114;&#64;&#116;&#104;&#x79;&#x72;&#115;&#117;&#115;&#46;&#99;&#x6f;&#x6d;" target="_blank" rel="noopener">&#101;&#x73;&#114;&#64;&#116;&#104;&#x79;&#x72;&#115;&#117;&#115;&#46;&#99;&#x6f;&#x6d;</a><br><strong>瑞克.莫恩（Rick Moen）</strong> <a href="mailto:&#x72;&#101;&#115;&#x70;&#x6f;&#x6e;&#x64;&#x2d;&#x61;&#117;&#x74;&#111;&#x40;&#x6c;&#x69;&#110;&#117;&#120;&#x6d;&#x61;&#102;&#x69;&#97;&#x2e;&#99;&#111;&#x6d;" target="_blank" rel="noopener">&#x72;&#101;&#115;&#x70;&#x6f;&#x6e;&#x64;&#x2d;&#x61;&#117;&#x74;&#111;&#x40;&#x6c;&#x69;&#110;&#117;&#120;&#x6d;&#x61;&#102;&#x69;&#97;&#x2e;&#99;&#111;&#x6d;</a><br>版权©2001, 2006 Eric S. Raymond, Rick Moen<br><a id="more"></a></p><h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="https://github.com/tvvocold/How-To-Ask-Questions-The-Smart-Way/blob/master/README.md" target="_blank" rel="noopener">中文：《提问的智慧》</a>   </p><p><a href="http://www.catb.org/~esr/faqs/smart-questions.html" target="_blank" rel="noopener">原文：《How To Ask Questions The Smart Way》</a></p><p>要求声明：（我们不提供该项目的服务支持！）</p><p><img src="https://upload-images.jianshu.io/upload_images/3262738-4ab43d3ebaf85698.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配一张图"></p>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;《提问的智慧》&quot;&gt;&lt;a href=&quot;#《提问的智慧》&quot; class=&quot;headerlink&quot; title=&quot;《提问的智慧》&quot;&gt;&lt;/a&gt;《提问的智慧》&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;艾瑞克.史蒂文.雷蒙德（Eric Steven Raymond）&lt;/strong&gt;Thyrsus Enterprises &lt;a href=&quot;mailto:&amp;#101;&amp;#115;&amp;#114;&amp;#x40;&amp;#116;&amp;#x68;&amp;#x79;&amp;#x72;&amp;#115;&amp;#117;&amp;#x73;&amp;#x2e;&amp;#99;&amp;#111;&amp;#x6d;&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&amp;#101;&amp;#115;&amp;#114;&amp;#x40;&amp;#116;&amp;#x68;&amp;#x79;&amp;#x72;&amp;#115;&amp;#117;&amp;#x73;&amp;#x2e;&amp;#99;&amp;#111;&amp;#x6d;&lt;/a&gt;&lt;br&gt;&lt;strong&gt;瑞克.莫恩（Rick Moen）&lt;/strong&gt; &lt;a href=&quot;mailto:&amp;#x72;&amp;#101;&amp;#115;&amp;#112;&amp;#111;&amp;#x6e;&amp;#100;&amp;#45;&amp;#x61;&amp;#117;&amp;#116;&amp;#111;&amp;#x40;&amp;#x6c;&amp;#x69;&amp;#x6e;&amp;#x75;&amp;#120;&amp;#x6d;&amp;#x61;&amp;#102;&amp;#105;&amp;#x61;&amp;#46;&amp;#99;&amp;#x6f;&amp;#x6d;&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&amp;#x72;&amp;#101;&amp;#115;&amp;#112;&amp;#111;&amp;#x6e;&amp;#100;&amp;#45;&amp;#x61;&amp;#117;&amp;#116;&amp;#111;&amp;#x40;&amp;#x6c;&amp;#x69;&amp;#x6e;&amp;#x75;&amp;#120;&amp;#x6d;&amp;#x61;&amp;#102;&amp;#105;&amp;#x61;&amp;#46;&amp;#99;&amp;#x6f;&amp;#x6d;&lt;/a&gt;&lt;br&gt;版权©2001, 2006 Eric S. Raymond, Rick Moen&lt;br&gt;
+      &lt;h2 id=&quot;《提问的智慧》&quot;&gt;&lt;a href=&quot;#《提问的智慧》&quot; class=&quot;headerlink&quot; title=&quot;《提问的智慧》&quot;&gt;&lt;/a&gt;《提问的智慧》&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;艾瑞克.史蒂文.雷蒙德（Eric Steven Raymond）&lt;/strong&gt;Thyrsus Enterprises &lt;a href=&quot;mailto:&amp;#101;&amp;#x73;&amp;#114;&amp;#64;&amp;#116;&amp;#104;&amp;#x79;&amp;#x72;&amp;#115;&amp;#117;&amp;#115;&amp;#46;&amp;#99;&amp;#x6f;&amp;#x6d;&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&amp;#101;&amp;#x73;&amp;#114;&amp;#64;&amp;#116;&amp;#104;&amp;#x79;&amp;#x72;&amp;#115;&amp;#117;&amp;#115;&amp;#46;&amp;#99;&amp;#x6f;&amp;#x6d;&lt;/a&gt;&lt;br&gt;&lt;strong&gt;瑞克.莫恩（Rick Moen）&lt;/strong&gt; &lt;a href=&quot;mailto:&amp;#x72;&amp;#101;&amp;#115;&amp;#x70;&amp;#x6f;&amp;#x6e;&amp;#x64;&amp;#x2d;&amp;#x61;&amp;#117;&amp;#x74;&amp;#111;&amp;#x40;&amp;#x6c;&amp;#x69;&amp;#110;&amp;#117;&amp;#120;&amp;#x6d;&amp;#x61;&amp;#102;&amp;#x69;&amp;#97;&amp;#x2e;&amp;#99;&amp;#111;&amp;#x6d;&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&amp;#x72;&amp;#101;&amp;#115;&amp;#x70;&amp;#x6f;&amp;#x6e;&amp;#x64;&amp;#x2d;&amp;#x61;&amp;#117;&amp;#x74;&amp;#111;&amp;#x40;&amp;#x6c;&amp;#x69;&amp;#110;&amp;#117;&amp;#120;&amp;#x6d;&amp;#x61;&amp;#102;&amp;#x69;&amp;#97;&amp;#x2e;&amp;#99;&amp;#111;&amp;#x6d;&lt;/a&gt;&lt;br&gt;版权©2001, 2006 Eric S. Raymond, Rick Moen&lt;br&gt;
     
     </summary>
     
     
-      <category term="IT" scheme="http://wzmyyj.top/tags/IT/"/>
+      <category term="IT" scheme="https://wzmyyj.top/tags/IT/"/>
     
   </entry>
   
   <entry>
     <title>【图片】仅仅是几张图而已哦^_^</title>
-    <link href="http://wzmyyj.top/2018/06/01/pic_1/"/>
-    <id>http://wzmyyj.top/2018/06/01/pic_1/</id>
+    <link href="https://wzmyyj.top/2018/06/01/pic_1/"/>
+    <id>https://wzmyyj.top/2018/06/01/pic_1/</id>
     <published>2018-06-01T13:20:06.000Z</published>
     <updated>2018-06-12T09:48:41.009Z</updated>
     
@@ -112,14 +112,14 @@
     </summary>
     
     
-      <category term="图片" scheme="http://wzmyyj.top/tags/%E5%9B%BE%E7%89%87/"/>
+      <category term="图片" scheme="https://wzmyyj.top/tags/%E5%9B%BE%E7%89%87/"/>
     
   </entry>
   
   <entry>
     <title>【android】封装使用Toast</title>
-    <link href="http://wzmyyj.top/2018/05/22/android_2/"/>
-    <id>http://wzmyyj.top/2018/05/22/android_2/</id>
+    <link href="https://wzmyyj.top/2018/05/22/android_2/"/>
+    <id>https://wzmyyj.top/2018/05/22/android_2/</id>
     <published>2018-05-22T12:57:43.000Z</published>
     <updated>2018-06-05T04:01:42.192Z</updated>
     
@@ -135,14 +135,14 @@
     </summary>
     
     
-      <category term="android" scheme="http://wzmyyj.top/tags/android/"/>
+      <category term="android" scheme="https://wzmyyj.top/tags/android/"/>
     
   </entry>
   
   <entry>
     <title>【android】日志工具Log类</title>
-    <link href="http://wzmyyj.top/2018/05/22/android_1/"/>
-    <id>http://wzmyyj.top/2018/05/22/android_1/</id>
+    <link href="https://wzmyyj.top/2018/05/22/android_1/"/>
+    <id>https://wzmyyj.top/2018/05/22/android_1/</id>
     <published>2018-05-22T12:43:30.000Z</published>
     <updated>2018-06-05T05:14:45.072Z</updated>
     
@@ -155,14 +155,14 @@
     </summary>
     
     
-      <category term="android" scheme="http://wzmyyj.top/tags/android/"/>
+      <category term="android" scheme="https://wzmyyj.top/tags/android/"/>
     
   </entry>
   
   <entry>
     <title>【设计模式】工厂模式</title>
-    <link href="http://wzmyyj.top/2018/05/18/design_3/"/>
-    <id>http://wzmyyj.top/2018/05/18/design_3/</id>
+    <link href="https://wzmyyj.top/2018/05/18/design_3/"/>
+    <id>https://wzmyyj.top/2018/05/18/design_3/</id>
     <published>2018-05-18T09:52:10.000Z</published>
     <updated>2018-05-30T09:38:24.945Z</updated>
     
@@ -175,14 +175,14 @@
     </summary>
     
     
-      <category term="设计模式" scheme="http://wzmyyj.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+      <category term="设计模式" scheme="https://wzmyyj.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>【设计模式】单例模式</title>
-    <link href="http://wzmyyj.top/2018/04/17/design_2/"/>
-    <id>http://wzmyyj.top/2018/04/17/design_2/</id>
+    <link href="https://wzmyyj.top/2018/04/17/design_2/"/>
+    <id>https://wzmyyj.top/2018/04/17/design_2/</id>
     <published>2018-04-17T13:20:06.000Z</published>
     <updated>2018-05-30T09:38:49.986Z</updated>
     
@@ -195,14 +195,14 @@
     </summary>
     
     
-      <category term="设计模式" scheme="http://wzmyyj.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+      <category term="设计模式" scheme="https://wzmyyj.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>【设计模式】面向对象六大原则</title>
-    <link href="http://wzmyyj.top/2018/04/15/design_1/"/>
-    <id>http://wzmyyj.top/2018/04/15/design_1/</id>
+    <link href="https://wzmyyj.top/2018/04/15/design_1/"/>
+    <id>https://wzmyyj.top/2018/04/15/design_1/</id>
     <published>2018-04-14T16:08:04.000Z</published>
     <updated>2018-05-30T09:37:50.610Z</updated>
     
@@ -215,14 +215,14 @@
     </summary>
     
     
-      <category term="设计模式" scheme="http://wzmyyj.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+      <category term="设计模式" scheme="https://wzmyyj.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>【java】归并排序算法</title>
-    <link href="http://wzmyyj.top/2018/04/14/java_1/"/>
-    <id>http://wzmyyj.top/2018/04/14/java_1/</id>
+    <link href="https://wzmyyj.top/2018/04/14/java_1/"/>
+    <id>https://wzmyyj.top/2018/04/14/java_1/</id>
     <published>2018-04-14T13:35:08.000Z</published>
     <updated>2018-06-04T13:45:32.895Z</updated>
     
@@ -235,14 +235,14 @@
     </summary>
     
     
-      <category term="java" scheme="http://wzmyyj.top/tags/java/"/>
+      <category term="java" scheme="https://wzmyyj.top/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>【IT】L2TP/IPSec配置教程</title>
-    <link href="http://wzmyyj.top/2018/04/10/it_2/"/>
-    <id>http://wzmyyj.top/2018/04/10/it_2/</id>
+    <link href="https://wzmyyj.top/2018/04/10/it_2/"/>
+    <id>https://wzmyyj.top/2018/04/10/it_2/</id>
     <published>2018-04-10T13:40:49.000Z</published>
     <updated>2018-06-05T04:00:57.423Z</updated>
     
@@ -255,14 +255,14 @@
     </summary>
     
     
-      <category term="IT" scheme="http://wzmyyj.top/tags/IT/"/>
+      <category term="IT" scheme="https://wzmyyj.top/tags/IT/"/>
     
   </entry>
   
   <entry>
     <title>【IT】购买Vultr服务器</title>
-    <link href="http://wzmyyj.top/2018/04/07/it_1/"/>
-    <id>http://wzmyyj.top/2018/04/07/it_1/</id>
+    <link href="https://wzmyyj.top/2018/04/07/it_1/"/>
+    <id>https://wzmyyj.top/2018/04/07/it_1/</id>
     <published>2018-04-07T08:11:50.000Z</published>
     <updated>2018-06-02T08:40:27.603Z</updated>
     
@@ -275,7 +275,7 @@
     </summary>
     
     
-      <category term="IT" scheme="http://wzmyyj.top/tags/IT/"/>
+      <category term="IT" scheme="https://wzmyyj.top/tags/IT/"/>
     
   </entry>
   
