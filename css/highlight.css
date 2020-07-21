@@ -93,7 +93,7 @@ figure.highlight .gutter .line,
 figure.highlight .line,
 .codeblock .line {
   font-size: 13px;
-  color: #333;
+  color: #000;
 }
 figure.highlight .line.marked,
 .codeblock .line.marked {
@@ -111,7 +111,9 @@ figure.highlight .code,
   margin: 0 0 5px 0;
 }
 /* code highlight color*/
-.highlight .comment,
+.highlight .comment {
+  color: #aeaeae;
+}
 .highlight .title {
   color: #888;
 }
